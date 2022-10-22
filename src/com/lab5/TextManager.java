@@ -11,6 +11,7 @@ public class TextManager{
 
     CyclicBarrier barrier;
 
+    Integer global_end = 0;
 
     public TextManager() {
         int n = 4;
@@ -28,7 +29,7 @@ public class TextManager{
 
 
         for (int i = 0; i < n; i++) {
-            new Thread(new TextWorker(barrier, text.get(i), i)).start();
+            new Thread(new TextWorker(barrier, text.get(i), i, global_end)).start();
         }
 
     }
